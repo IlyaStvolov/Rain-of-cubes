@@ -31,16 +31,15 @@ public class CubesSpawner : MonoBehaviour
 
     private void ActionOnGet(Cube cube)
     {
-        cube.CubeLifeTimeOver += _pool.Release;
+        cube.LifeTimeOver += _pool.Release;
 
         cube.transform.position = GetSpawnCoordinate();
-        cube.GetComponent<Rigidbody>().velocity = Vector3.zero;
         cube.gameObject.SetActive(true);
     }
 
     private void ActionOnRelease(Cube cube)
     {
-        cube.CubeLifeTimeOver -= _pool.Release;
+        cube.LifeTimeOver -= _pool.Release;
 
         cube.gameObject.SetActive(false);
     }
